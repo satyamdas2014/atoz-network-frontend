@@ -1,0 +1,76 @@
+<div class="dashboard">
+  <aside class="sidebar">
+    <h2>A To Z <span>NETWORK</span></h2>
+    <p class="sidebar-label">MAIN MENU</p>
+
+    <a routerLink="/admin" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}">🏠 Dashboard</a>
+    <a routerLink="/admin/customers">👥 Customers</a>
+    <a routerLink="/admin/enquiries">📩 Enquiries</a>
+    <a routerLink="/admin/plans">🌐 Service Plans</a>
+    <a routerLink="/admin/requests">📋 Service Requests</a>
+    <a routerLink="/admin/complaints">⚠️ Complaints</a>
+
+    <a routerLink="/" class="website-link">↗ View Website</a>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <h1>Admin Dashboard</h1>
+        <p>Welcome to A To Z Network Services</p>
+      </div>
+      <span class="admin-badge">Administrator</span>
+    </header>
+
+    <section class="welcome-card">
+      <div>
+        <h2>Welcome back, Admin!</h2>
+        <p>Manage your customers, enquiries and internet services from one place.</p>
+      </div>
+      <span class="welcome-icon">📊</span>
+    </section>
+
+    <h2 class="section-title">Business Overview</h2>
+
+    <section class="stats-grid">
+      <a routerLink="/admin/customers" class="stat-card blue">
+        <span class="stat-icon">👥</span>
+        <p>Total Customers</p>
+        <h3>View Customers</h3>
+        <span class="stat-link">Manage customers →</span>
+      </a>
+
+      <a routerLink="/admin/enquiries" class="stat-card purple">
+        <span class="stat-icon">📩</span>
+        <p>Customer Enquiries</p>
+        <h3>View Enquiries</h3>
+        <span class="stat-link">Manage enquiries →</span>
+      </a>
+
+      <a routerLink="/admin/plans" class="stat-card green">
+        <span class="stat-icon">🌐</span>
+        <p>Service Plans</p>
+        <h3>View Plans</h3>
+        <span class="stat-link">Manage plans →</span>
+      </a>
+
+      <a routerLink="/admin/requests" class="stat-card orange">
+        <span class="stat-icon">📋</span>
+        <p>Service Requests</p>
+        <h3>View Requests</h3>
+        <span class="stat-link">Manage requests →</span>
+      </a>
+
+      <a routerLink="/admin/complaints" class="stat-card red">
+        <span class="stat-icon">⚠️</span>
+        <p>Customer Complaints</p>
+        <h3>View Complaints</h3>
+        <span class="stat-link">Manage complaints →</span>
+      </a>
+    </section>
+
+    <footer class="dashboard-footer">
+      © 2026 A To Z Network Services · Admin Portal
+    </footer>
+  </main>
+</div>

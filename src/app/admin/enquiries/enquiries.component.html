@@ -1,0 +1,164 @@
+<div class="admin-page">
+
+  <div class="page-header">
+
+    <div>
+      <h1>Customer Enquiries</h1>
+
+      <p>
+        Manage customer connection enquiries
+      </p>
+    </div>
+
+    <button
+      class="refresh-btn"
+      (click)="loadEnquiries()">
+
+      Refresh
+
+    </button>
+
+  </div>
+
+
+  <div
+    *ngIf="loading"
+    class="loading">
+
+    Loading enquiries...
+
+  </div>
+
+
+  <div
+    *ngIf="errorMessage"
+    class="error-message">
+
+    {{ errorMessage }}
+
+  </div>
+
+
+  <div
+    *ngIf="!loading && enquiries.length === 0"
+    class="empty-message">
+
+    No enquiries found.
+
+  </div>
+
+
+  <div
+    class="table-container"
+    *ngIf="!loading && enquiries.length > 0">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>ID</th>
+
+          <th>Name</th>
+
+          <th>Mobile</th>
+
+          <th>Email</th>
+
+          <th>Connection</th>
+
+          <th>Plan</th>
+
+          <th>Address</th>
+
+          <th>Message</th>
+
+          <th>Status</th>
+
+          <th>Created</th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        <tr
+          *ngFor="let enquiry of enquiries">
+
+          <td>
+            {{ enquiry.id }}
+          </td>
+
+          <td>
+            {{ enquiry.name }}
+          </td>
+
+          <td>
+            {{ enquiry.mobile }}
+          </td>
+
+          <td>
+            {{ enquiry.email || '-' }}
+          </td>
+
+          <td>
+            {{ enquiry.connectionType }}
+          </td>
+
+          <td>
+            {{ enquiry.plan }}
+          </td>
+
+          <td>
+            {{ enquiry.address }}
+          </td>
+
+          <td>
+            {{ enquiry.message || '-' }}
+          </td>
+
+          <td>
+
+            <select
+              [value]="enquiry.status"
+              (change)="updateStatus(
+                enquiry.id,
+                $any($event.target).value
+              )">
+
+              <option value="NEW">
+                NEW
+              </option>
+
+              <option value="CONTACTED">
+                CONTACTED
+              </option>
+
+              <option value="APPROVED">
+                APPROVED
+              </option>
+
+              <option value="REJECTED">
+                REJECTED
+              </option>
+
+            </select>
+
+          </td>
+
+          <td>
+            {{ enquiry.createdAt | date:'dd-MM-yyyy HH:mm' }}
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

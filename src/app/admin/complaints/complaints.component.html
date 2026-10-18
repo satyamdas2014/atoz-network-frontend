@@ -1,0 +1,47 @@
+
+<div class="admin-page">
+  <h1>Customer Complaints</h1>
+  <p>View customer complaints.</p>
+
+  <label for="complaintStatus">Filter by status:</label>
+  <select id="complaintStatus"
+    [(ngModel)]="selectedStatus"
+    (ngModelChange)="applyFilter()">
+    <option value="ALL">All Complaints</option>
+    <option value="PENDING">Pending</option>
+    <option value="IN_PROGRESS">In Progress</option>
+    <option value="RESOLVED">Resolved</option>
+    <option value="CLOSED">Closed</option>
+  </select>
+
+  <button type="button" (click)="loadComplaints()">Refresh</button>
+
+  <p *ngIf="loading">Loading complaints...</p>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <p *ngIf="!loading && !errorMessage && filteredComplaints.length === 0">
+    No complaints found.
+  </p>
+
+  <table *ngIf="filteredComplaints.length > 0" border="1" cellpadding="10">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Customer</th>
+        <th>Subject</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let complaint of filteredComplaints">
+        <td>{{ complaint.id }}</td>
+        <td>{{ complaint.customerName || complaint.name || complaint.customerId || '-' }}</td>
+        <td>{{ complaint.subject || complaint.title || '-' }}</td>
+        <td>{{ complaint.description || complaint.message || '-' }}</td>
+        <td>{{ complaint.status || '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

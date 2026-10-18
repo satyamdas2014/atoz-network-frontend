@@ -1,0 +1,382 @@
+
+<div class="navbar">
+  <div class="logo">A To Z Network Services</div>
+
+  
+<div class="nav-links">
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#plans">Plans</a>
+  <a href="#service-request">Service Request</a>
+  <a href="#complaint">Complaint</a>
+  <a href="#contact">Contact</a>
+  <a href="#enquiry" class="enquiry-btn">Get Connection</a>
+</div>
+
+</div>
+
+<!-- HOME -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Fast &amp; Reliable Internet Services</h1>
+    <p>
+      Get reliable internet connectivity for your home and business.
+      Choose a plan that fits your needs.
+    </p>
+    <a href="#enquiry" class="hero-btn">Request New Connection</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <h2>Our Services</h2>
+
+  <div class="service-container">
+    <div class="service-card">
+      <h3>New Connection</h3>
+      <p>Apply for a new internet connection from A To Z Network Services.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Internet Plans</h3>
+      <p>Choose an internet plan according to your speed and usage requirements.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Customer Support</h3>
+      <p>Raise your service request or complaint and our team will contact you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section id="plans" class="section plans-section">
+  <h2>Popular Plans</h2>
+
+  <div class="service-container">
+    <div class="plan-card">
+      <h3>Basic</h3>
+      <h2>₹499</h2>
+      <p>Suitable for regular home usage</p>
+      <ul>
+        <li>Good Internet Speed</li>
+        <li>Unlimited Usage</li>
+        <li>Customer Support</li>
+      </ul>
+      <a href="#enquiry" class="plan-btn">Choose Plan</a>
+    </div>
+
+    <div class="plan-card">
+      <h3>Standard</h3>
+      <h2>₹699</h2>
+      <p>Suitable for families</p>
+      <ul>
+        <li>High Speed Internet</li>
+        <li>Unlimited Usage</li>
+        <li>Customer Support</li>
+      </ul>
+      <a href="#enquiry" class="plan-btn">Choose Plan</a>
+    </div>
+
+    <div class="plan-card">
+      <h3>Premium</h3>
+      <h2>₹999</h2>
+      <p>Suitable for heavy users</p>
+      <ul>
+        <li>Very High Speed</li>
+        <li>Unlimited Usage</li>
+        <li>Priority Support</li>
+      </ul>
+      <a href="#enquiry" class="plan-btn">Choose Plan</a>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY FORM -->
+<section id="enquiry" class="section enquiry-section">
+  <div class="enquiry-container">
+    <div class="enquiry-heading">
+      <span class="form-tag">LET'S GET CONNECTED</span>
+      <h2>Get a New Connection</h2>
+      <p>Fill in your details and our team will contact you.</p>
+    </div>
+
+    <form #enquiryForm="ngForm" (ngSubmit)="submitEnquiry()">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name <span>*</span></label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            [(ngModel)]="customer.name"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+            #nameField="ngModel">
+          <small class="field-error"
+            *ngIf="nameField.invalid && nameField.touched">
+            Please enter your name.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="mobile">Mobile Number <span>*</span></label>
+          <input
+            id="mobile"
+            type="tel"
+            name="mobile"
+            [(ngModel)]="customer.mobile"
+            placeholder="10-digit mobile number"
+            autocomplete="tel"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            required
+            #mobileField="ngModel">
+          <small class="field-error"
+            *ngIf="mobileField.invalid && mobileField.touched">
+            Enter a valid 10-digit mobile number.
+          </small>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            [(ngModel)]="customer.email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            #emailField="ngModel">
+          <small class="field-error"
+            *ngIf="emailField.invalid && emailField.touched">
+            Please enter a valid email address.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="connectionType">Connection Type <span>*</span></label>
+          <select
+            id="connectionType"
+            name="connectionType"
+            [(ngModel)]="customer.connectionType"
+            required>
+            <option value="" disabled>Select connection type</option>
+            <option value="Bharat Fiber">Bharat Fiber</option>
+            <option value="Broadband">Broadband</option>
+            <option value="Fiber Internet">Fiber Internet</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Installation Address <span>*</span></label>
+        <textarea
+          id="address"
+          name="address"
+          [(ngModel)]="customer.address"
+          rows="3"
+          placeholder="House no., street, area, city and PIN code"
+          autocomplete="street-address"
+          required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="plan">Choose Your Plan <span>*</span></label>
+        <select
+          id="plan"
+          name="plan"
+          [(ngModel)]="customer.plan"
+          required>
+          <option value="" disabled>Select an internet plan</option>
+          <option value="Bharat Fiber Basic">Bharat Fiber Basic - ₹499</option>
+          <option value="Bharat Fiber Standard">Bharat Fiber Standard - ₹699</option>
+          <option value="Bharat Fiber Premium">Bharat Fiber Premium - ₹999</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Additional Message <span class="optional">(Optional)</span></label>
+        <textarea
+          id="message"
+          name="message"
+          [(ngModel)]="customer.message"
+          rows="3"
+          placeholder="Any specific requirements or preferred installation time?"></textarea>
+      </div>
+
+      <div *ngIf="successMessage" class="success-message" role="status">
+        <strong>✓ Enquiry submitted</strong>
+        <p>{{ successMessage }}</p>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message" role="alert">
+        {{ errorMessage }}
+      </div>
+
+      <button
+        type="submit"
+        class="submit-btn"
+        [disabled]="loading || enquiryForm.invalid">
+        <span>{{ loading ? 'Submitting your enquiry...' : 'Submit Enquiry' }}</span>
+        <span *ngIf="!loading" aria-hidden="true"> →</span>
+      </button>
+
+      <p class="form-note">Your details will be used to respond to your enquiry.</p>
+    </form>
+  </div>
+</section>
+
+
+
+<!-- SERVICE REQUEST -->
+<section id="service-request" class="section request-section">
+  <div class="form-container">
+    <div class="form-heading">
+      <span class="form-tag">CUSTOMER SUPPORT</span>
+      <h2>Request a Service</h2>
+      <p>Need installation, technical support or a plan change? Submit a request.</p>
+    </div>
+
+    <form #requestForm="ngForm" (ngSubmit)="submitServiceRequest(requestForm)">
+      <div class="form-group">
+        <label for="requestName">Full Name *</label>
+        <input id="requestName" name="name" type="text"
+          [(ngModel)]="serviceRequest.name" required
+          placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="requestMobile">Registered Mobile Number *</label>
+        <input id="requestMobile" name="mobile" type="tel"
+          [(ngModel)]="serviceRequest.mobile" required
+          pattern="[0-9]{10}" maxlength="10"
+          placeholder="10-digit mobile number">
+      </div>
+
+      <div class="form-group">
+        <label for="requestType">Service Required *</label>
+        <select id="requestType" name="requestType"
+          [(ngModel)]="serviceRequest.requestType" required>
+          <option value="" disabled>Select a service</option>
+          <option value="NEW_CONNECTION">New Connection</option>
+          <option value="INSTALLATION">Installation</option>
+          <option value="TECHNICAL_SUPPORT">Technical Support</option>
+          <option value="PLAN_CHANGE">Plan Change</option>
+          <option value="DISCONNECTION">Disconnection</option>
+          <option value="OTHER">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="requestAddress">Address *</label>
+        <textarea id="requestAddress" name="address"
+          [(ngModel)]="serviceRequest.address" required rows="3"
+          placeholder="Enter your service address"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="requestDescription">Request Details *</label>
+        <textarea id="requestDescription" name="description"
+          [(ngModel)]="serviceRequest.description" required rows="4"
+          placeholder="Describe the service you need"></textarea>
+      </div>
+
+      <p *ngIf="requestSuccess" class="success-message" role="status">
+        {{ requestSuccess }}
+      </p>
+      <p *ngIf="requestError" class="error-message" role="alert">
+        {{ requestError }}
+      </p>
+
+      <button type="submit" class="submit-btn"
+        [disabled]="requestLoading || requestForm.invalid">
+        {{ requestLoading ? 'Submitting...' : 'Submit Service Request' }}
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- COMPLAINT REGISTRATION -->
+<section id="complaint" class="section complaint-section">
+  <div class="form-container">
+    <div class="form-heading">
+      <span class="form-tag">WE ARE HERE TO HELP</span>
+      <h2>Register a Complaint</h2>
+      <p>Tell us about your issue so our support team can assist you.</p>
+    </div>
+
+    <form #complaintForm="ngForm" (ngSubmit)="submitComplaint(complaintForm)">
+      <div class="form-group">
+        <label for="complaintName">Full Name *</label>
+        <input id="complaintName" name="name" type="text"
+          [(ngModel)]="complaint.name" required
+          placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="complaintMobile">Registered Mobile Number *</label>
+        <input id="complaintMobile" name="mobile" type="tel"
+          [(ngModel)]="complaint.mobile" required
+          pattern="[0-9]{10}" maxlength="10"
+          placeholder="10-digit mobile number">
+      </div>
+
+      <div class="form-group">
+        <label for="complaintCategory">Complaint Category *</label>
+        <select id="complaintCategory" name="category"
+          [(ngModel)]="complaint.category" required>
+          <option value="" disabled>Select complaint category</option>
+          <option value="NO_INTERNET">Internet Not Working</option>
+          <option value="SLOW_INTERNET">Slow Internet Speed</option>
+          <option value="BILLING">Billing Issue</option>
+          <option value="INSTALLATION">Installation Issue</option>
+          <option value="OTHER">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="complaintAddress">Service Address *</label>
+        <textarea id="complaintAddress" name="address"
+          [(ngModel)]="complaint.address" required rows="3"
+          placeholder="Enter your service address"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="complaintDescription">Describe Your Issue *</label>
+        <textarea id="complaintDescription" name="description"
+          [(ngModel)]="complaint.description" required rows="4"
+          placeholder="Explain the problem you are facing"></textarea>
+      </div>
+
+      <p *ngIf="complaintSuccess" class="success-message" role="status">
+        {{ complaintSuccess }}
+      </p>
+      <p *ngIf="complaintError" class="error-message" role="alert">
+        {{ complaintError }}
+      </p>
+
+      <button type="submit" class="submit-btn"
+        [disabled]="complaintLoading || complaintForm.invalid">
+        {{ complaintLoading ? 'Submitting...' : 'Submit Complaint' }}
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <h2>Contact Us</h2>
+  <p>For connection and service enquiries, contact our team.</p>
+  <p>📞 Phone: +91 9074243409</p>
+  <p>📧 Email: vikash7415942285@gmail.com</p>
+</section>
+
+<footer>
+  <p>© 2026 A To Z Network Services. All Rights Reserved.</p>
+</footer>

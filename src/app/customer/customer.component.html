@@ -1,0 +1,174 @@
+<div class="admin-page">
+
+  <div class="page-header">
+
+    <div>
+      <h1>Customers</h1>
+
+      <p>
+        Manage registered customers
+      </p>
+    </div>
+
+    <button
+      class="refresh-btn"
+      (click)="loadCustomers()">
+
+      Refresh
+
+    </button>
+
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      [(ngModel)]="searchName"
+      placeholder="Search customer by name">
+
+    <button
+      class="search-btn"
+      (click)="searchCustomers()">
+
+      Search
+
+    </button>
+
+    <button
+      class="clear-btn"
+      (click)="clearSearch()">
+
+      Clear
+
+    </button>
+
+  </div>
+
+
+  <!-- LOADING -->
+
+  <div
+    *ngIf="loading"
+    class="loading">
+
+    Loading customers...
+
+  </div>
+
+
+  <!-- ERROR -->
+
+  <div
+    *ngIf="errorMessage"
+    class="error-message">
+
+    {{ errorMessage }}
+
+  </div>
+
+
+  <!-- EMPTY -->
+
+  <div
+    *ngIf="!loading && customers.length === 0"
+    class="empty-message">
+
+    No customers found.
+
+  </div>
+
+
+  <!-- TABLE -->
+
+  <div
+    class="table-container"
+    *ngIf="!loading && customers.length > 0">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>ID</th>
+
+          <th>Name</th>
+
+          <th>Mobile</th>
+
+          <th>Address</th>
+
+          <th>Connection Type</th>
+
+          <th>Status</th>
+
+          <th>Action</th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        <tr
+          *ngFor="let customer of customers">
+
+          <td>
+            {{ customer.id }}
+          </td>
+
+          <td>
+            {{ customer.name }}
+          </td>
+
+          <td>
+            {{ customer.mobile }}
+          </td>
+
+          <td>
+            {{ customer.address }}
+          </td>
+
+          <td>
+            {{ customer.connectionType || '-' }}
+          </td>
+
+          <td>
+
+            <span
+              class="status"
+              [class.pending]="customer.status === 'PENDING'"
+              [class.active]="customer.status === 'ACTIVE'">
+
+              {{ customer.status }}
+
+            </span>
+
+          </td>
+
+          <td>
+
+            <button
+              class="delete-btn"
+              (click)="deleteCustomer(customer.id)">
+
+              Delete
+
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
