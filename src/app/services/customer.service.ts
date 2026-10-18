@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  private apiUrl = 'http://localhost:8081/api/customers';
+  private apiUrl = 'https://atoz-network-services.onrender.com/api/customers';
 
   constructor(private http: HttpClient) {}
 

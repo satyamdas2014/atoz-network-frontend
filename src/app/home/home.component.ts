@@ -34,7 +34,7 @@ export class HomeComponent {
     this.successMessage = '';
     this.errorMessage = '';
 
-    this.http.post('http://localhost:8081/api/enquiries', this.customer)
+    this.http.post('https://atoz-network-services.onrender.com/api/enquiries', this.customer)
       .subscribe({
         next: (response: any) => {
           this.successMessage =
@@ -100,7 +100,7 @@ submitServiceRequest(form: any): void {
   this.requestError = '';
 
   this.http.post(
-    'http://localhost:8081/api/service-requests',
+    'https://atoz-network-services.onrender.com/api/service-requests',
     this.serviceRequest
   ).subscribe({
     next: (response: any) => {
@@ -150,7 +150,7 @@ submitComplaint(form: any): void {
 };
 
 this.http.post(
-  'http://localhost:8081/api/complaints',
+  'https://atoz-network-services.onrender.com/api/complaints',
   complaintPayload
 ).subscribe({
     next: (response: any) => {
