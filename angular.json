@@ -25,7 +25,12 @@
                 "glob": "googleb6ff642036519aa6.html",
                 "input": "src/",
                 "output": "/"
-              }
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "src/",
+                "output": "/"
+              }              
             ],
             "styles": [
               "src/styles.css"
