@@ -20,7 +20,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "googleb6ff642036519aa6.html",
+                "input": "src/",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles.css"
@@ -31,15 +36,15 @@
             "production": {
               "budgets": [
                 {
-  "type": "initial",
-  "maximumWarning": "500kb",
-  "maximumError": "1mb"
-},
-{
-  "type": "anyComponentStyle",
-  "maximumWarning": "10kb",
-  "maximumError": "20kb"
-}
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10kb",
+                  "maximumError": "20kb"
+                }
               ],
               "fileReplacements": [
                 {
